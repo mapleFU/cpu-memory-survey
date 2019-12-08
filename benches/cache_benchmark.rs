@@ -1,7 +1,5 @@
 use criterion::{black_box, criterion_group, criterion_main, BenchmarkId, Criterion};
 
-use cache::constexpr;
-
 /// time:   [340.70 us 341.18 us 341.77 us]
 fn traverse_array1(sample: &[[i32; 1024]; 1024]) {
     for i in 0..1024 {
@@ -35,10 +33,6 @@ fn bench_array(c: &mut Criterion) {
         |b, sample_array| b.iter(|| traverse_array2(&sample_array)),
     );
     group.finish();
-}
-
-fn show_kb() -> u64 {
-    constexpr::KB
 }
 
 criterion_group!(benches, bench_array);

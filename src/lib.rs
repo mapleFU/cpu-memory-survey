@@ -22,8 +22,13 @@ pub mod constexpr {
     const HOUR: u64 = MINUTE * TIME_MAGNITUDE_2;
     const DAY: u64 = HOUR * TIME_MAGNITUDE_3;
 
-    const L1D_CACHE: u64 = KB * 256;
-    const L1I_CACHE: u64 = KB * 256;
-    const L2_CACHE: u64 = MB * 4;
-    const L3_CACHE: u64 = MB * 32;
+    pub const L1D_CACHE: u64 = KB * 256;
+    pub const L1I_CACHE: u64 = KB * 256;
+    pub const L2_CACHE: u64 = MB * 4;
+    pub const L3_CACHE: u64 = MB * 32;
+
+    pub const L1D_CACHE_USZ: usize = (KB as usize) * 256;
+    pub const L1I_CACHE_USZ: usize = (KB as usize) * 256;
+    pub const L2_CACHE_USZ: usize = (MB as usize) * 4;
+    pub const L3_CACHE_USZ: usize = (MB as usize) * 32;
 }

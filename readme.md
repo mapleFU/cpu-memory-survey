@@ -4,7 +4,8 @@
 
 * https://fosschef.wordpress.com/2011/07/08/prefetch-performance-and-toxic/
 * http://igoro.com/archive/gallery-of-processor-cache-effects/
-*
+* https://www.aristeia.com/TalkNotes/ACCU2011_CPUCaches.pdf
+* CSAPP, 3edtion.
 
 ## Tesing Machine:
 
