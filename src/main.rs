@@ -32,7 +32,12 @@ fn bench_with_sz(v: &mut [u8], mut clear_array: &mut [u8; constexpr::L2_CACHE_US
 fn benchmark() {
     // using clear array to clear all L3Cache
     let mut clear_array = [0; constexpr::L2_CACHE_USZ];
-    let size_group: Vec<usize> = (16..96).collect();
+    let mut size_group: Vec<usize> = Vec::new();
+    for sz in 16..=100 {
+        if sz % 4 == 0 {
+            size_group.push(sz)
+        }
+    }
     let mut avg_sz = Vec::new();
     for size in size_group.iter() {
         let mut v: Vec<u8> = Vec::with_capacity(*size);
@@ -42,7 +47,7 @@ fn benchmark() {
     }
 
     for (sz, time) in avg_sz {
-        println!("in size {}, average timing is {}", sz, time.as_nanos());
+        println!("in size {}, time is {}, average timing is {}", sz, time.as_nanos(), time.as_nanos() as usize / *sz );
     }
 }
 
