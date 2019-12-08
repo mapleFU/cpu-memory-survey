@@ -1,5 +1,11 @@
 # Cpu Memory Survey
 
+## 参考博客
+
+* https://fosschef.wordpress.com/2011/07/08/prefetch-performance-and-toxic/
+* http://igoro.com/archive/gallery-of-processor-cache-effects/
+*
+
 ## Tesing Machine:
 
 ```
