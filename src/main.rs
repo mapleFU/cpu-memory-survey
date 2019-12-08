@@ -2,7 +2,7 @@
 
 /// 我希望能够测量出 cache-line, 但是由于 cpu-prefetching, 其实效果差不多
 /// 接下来砍砍能不能砍掉 prefetching 然后交给 benchmark 做
-
+/// 好吧，可能是 AMD 做了什么优化，在我的 Intel i7 的 Mac 上倒是很明显。
 use cache::constexpr;
 
 use std::time::{Duration, Instant};
