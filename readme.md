@@ -63,7 +63,7 @@ The message above is shown by `lscpu`.
 
 `benches/cache_benchmark.rs` . 感觉都是n倍了，编译器加把劲优化啊
 
-###CPU Cache Line
+### CPU Cache Line
 
 `src/main.rs` 一开始跑了半个多小时效果都不好，后来换到 Intel i7 的 Mac 上效果显著增长。
 
