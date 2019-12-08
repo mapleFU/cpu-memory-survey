@@ -17,5 +17,5 @@ name = "cache_benchmark"
 harness = false
 
 [[bench]]
-name = "cache-line"
+name = "cache_line"
 harness = false
