@@ -17,7 +17,7 @@ fn clear_cache(c: &mut [u8; constexpr::L2_CACHE_USZ]) {
 
 fn bench_with_sz(v: &mut [u8], mut clear_array: &mut [u8; constexpr::L2_CACHE_USZ]) -> Duration {
     let mut sum_duration = Duration::default();
-    for _ in 0..512 {
+    for _ in 0..1024 {
         let start = Instant::now();
         for i in black_box(v.iter_mut()) {
             black_box(*i);
@@ -33,10 +33,8 @@ fn benchmark() {
     // using clear array to clear all L3Cache
     let mut clear_array = [0; constexpr::L2_CACHE_USZ];
     let mut size_group: Vec<usize> = Vec::new();
-    for sz in 16..=100 {
-        if sz % 4 == 0 {
-            size_group.push(sz)
-        }
+    for sz in 60..=68 {
+        size_group.push(sz);
     }
     let mut avg_sz = Vec::new();
     for size in size_group.iter() {

@@ -9,6 +9,8 @@
 
 ## Tesing Machine:
 
+我的台式，使用 `lscpu`
+
 ```
 
 架构：                           x86_64
@@ -55,15 +57,89 @@ Vulnerability Tsx async abort:   Not affected
 
 The message above is shown by `lscpu`.
 
+---
 
+我的 Mac，使用 `sysctl hw`
+
+```
+hw.ncpu: 8
+hw.byteorder: 1234
+hw.memsize: 17179869184
+hw.activecpu: 8
+hw.physicalcpu: 4
+hw.physicalcpu_max: 4
+hw.logicalcpu: 8
+hw.logicalcpu_max: 8
+hw.cputype: 7
+hw.cpusubtype: 8
+hw.cpu64bit_capable: 1
+hw.cpufamily: 280134364
+hw.cacheconfig: 8 2 2 8 0 0 0 0 0 0
+hw.cachesize: 17179869184 32768 262144 6291456 0 0 0 0 0 0
+hw.pagesize: 4096
+hw.pagesize32: 4096
+hw.busfrequency: 100000000
+hw.busfrequency_min: 100000000
+hw.busfrequency_max: 100000000
+hw.cpufrequency: 2200000000
+hw.cpufrequency_min: 2200000000
+hw.cpufrequency_max: 2200000000
+hw.cachelinesize: 64
+hw.l1icachesize: 32768
+hw.l1dcachesize: 32768
+hw.l2cachesize: 262144
+hw.l3cachesize: 6291456
+hw.tbfrequency: 1000000000
+hw.packages: 1
+hw.optional.floatingpoint: 1
+hw.optional.mmx: 1
+hw.optional.sse: 1
+hw.optional.sse2: 1
+hw.optional.sse3: 1
+hw.optional.supplementalsse3: 1
+hw.optional.sse4_1: 1
+hw.optional.sse4_2: 1
+hw.optional.x86_64: 1
+hw.optional.aes: 1
+hw.optional.avx1_0: 1
+hw.optional.rdrand: 1
+hw.optional.f16c: 1
+hw.optional.enfstrg: 1
+hw.optional.fma: 1
+hw.optional.avx2_0: 1
+hw.optional.bmi1: 1
+hw.optional.bmi2: 1
+hw.optional.rtm: 0
+hw.optional.hle: 0
+hw.optional.adx: 0
+hw.optional.mpx: 0
+hw.optional.sgx: 0
+hw.optional.avx512f: 0
+hw.optional.avx512cd: 0
+hw.optional.avx512dq: 0
+hw.optional.avx512bw: 0
+hw.optional.avx512vl: 0
+hw.optional.avx512ifma: 0
+hw.optional.avx512vbmi: 0
+hw.targettype: Mac
+hw.cputhreadtype: 1
+```
 
 ## Surveys
 
 ### Cache Friendly Code
 
+```bash
+cargo bench
+```
+
 `benches/cache_benchmark.rs` . 感觉都是n倍了，编译器加把劲优化啊
 
 ### CPU Cache Line
+
+```bash
+cargo run --release
+```
 
 `src/main.rs` 一开始跑了半个多小时效果都不好，后来换到 Intel i7 的 Mac 上效果显著增长。
 
