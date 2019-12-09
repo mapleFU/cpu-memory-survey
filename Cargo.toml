@@ -10,7 +10,7 @@ edition = "2018"
 
 
 [dev-dependencies]
-criterion = "0.3"
+criterion = "0.3.0"
 
 [[bench]]
 name = "cache_benchmark"
@@ -19,3 +19,7 @@ harness = false
 #[[bench]]
 #name = "cache_line"
 #harness = false
+
+[[bench]]
+name = "instruction-level-parallelism"
+harness = false
